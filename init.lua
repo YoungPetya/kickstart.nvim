@@ -229,6 +229,22 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'ThePrimeagen/vim-be-good',
   'R-nvim/R.nvim',
+  'R-nvim/cmp-r',
+  {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        sync_install = true,
+        ensure_installed = {
+          'r',
+          'markdown',
+          'markdown_inline',
+          'rnoweb',
+        },
+      }
+    end,
+  },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -825,7 +841,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'r', 'markdown', 'rnoweb' },
+      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'markdown', 'markdown_inline', 'r', 'rnoweb' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
