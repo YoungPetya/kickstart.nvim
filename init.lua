@@ -227,24 +227,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  'ThePrimeagen/vim-be-good',
-  'R-nvim/R.nvim',
-  'R-nvim/cmp-r',
-  {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require('nvim-treesitter.configs').setup {
-        sync_install = true,
-        ensure_installed = {
-          'r',
-          'markdown',
-          'markdown_inline',
-          'rnoweb',
-        },
-      }
-    end,
-  },
+
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -841,7 +824,23 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'markdown', 'markdown_inline', 'r', 'rnoweb' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'vim',
+        'vimdoc',
+        'markdown',
+        'markdown_inline',
+        'r',
+        'rnoweb',
+        'markdown',
+        'markdown_inline',
+        'rnoweb',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -891,7 +890,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
